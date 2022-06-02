@@ -1,0 +1,20 @@
+.valido-icon{
+    border-color:rgb(149, 151, 170)
+  }
+  
+  .invalido-icon{
+    border-color: red
+  }
+  
+  
+  #file-input {
+    display: none;
+  }
+  
+  .btn {
+    width: 150px;
+  }
+  
+  .input{
+    width: 20ppx;
+  }

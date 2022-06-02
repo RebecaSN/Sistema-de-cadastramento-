@@ -1,0 +1,20 @@
+<h2 class="titulo m-4">NOSSOS FUNCIONÁRIOS</h2>
+<div class="container mt-3">
+  <div class="row">
+      <div class="col-2 mx-3 my-3 bg-light text-center w-20 rounded card d-flex float-left" style="box-shadow: rgb(2, 38, 44) 1px 1px 13px 3px;"
+          *ngFor="let item of funcionario">
+          <div class="g-0">
+              <p class="card-text" style="font-weight: 900; color: rgb(4, 14, 75)">
+                  <small>{{item.nome}}</small></p>
+                <img src={{item.foto}} width="70px">
+              <div>
+                  <div class="card-body">
+                      <h5 class="card-title text-danger">{{item.cargo}}</h5>
+                      <p class="card-text text-dark">{{item.email}}</p>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

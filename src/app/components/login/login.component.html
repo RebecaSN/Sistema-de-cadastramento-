@@ -1,0 +1,26 @@
+<div class="card px-3 my-3">
+
+    <div class="card p-3 my-3">
+      <div class="card-body">
+        <h3>Faça seu login na Aplicação</h3>
+    </div>
+        <form action=""[formGroup]="form" >
+          <mat-form-field appearance="outline">
+            <mat-label>Email de usuário</mat-label>
+            <input type="email" matInput formControlName="email"
+            [class.valido-icon]="this.form.get('email')?.valid"
+            [class.invalido-icon]="(this.form.get('email')?.invalid && this.form.get('email')?.touched)">
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Senha de Usuário</mat-label>
+            <input type="password" matInput formControlName="senha"
+            [class.valido-icon]="this.form.get('senha')?.valid"
+                      [class.invalido-icon]="this.form.get('senha')?.invalid && this.form.get('senha')?.touched">
+          </mat-form-field>
+    
+          <button (click)="fazerLogin()" [disabled]="form.invalid" class="btn mx-2 "  mat-raised-button color="accent" type="submit" style="margin-top: 10px;">Login</button>
+          <button (click)="fazerLogout()" class="btn mx-2 " [disabled]="!usuarioEstaLogado" mat-raised-button color="accent" type="submit" style="margin-top: 10px;">Logout</button>
+        </form>
+    
+    </div>

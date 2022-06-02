@@ -1,0 +1,42 @@
+<div class="card px-3 my-3">
+
+    <div class="card p-3 my-3">
+      <div class="card-body">
+        <h3>Dados do Funcionário</h3>
+    </div>
+        <form action=""[formGroup]="funcionario" >
+          <mat-form-field appearance="outline">
+            <mat-label>Nome do Funcionário</mat-label>
+            <input type="text" matInput formControlName="nome"
+            [class.valido-icon]="this.funcionario.get('nome')?.valid"
+            [class.invalido-icon]="(this.funcionario.get('nome')?.invalid && this.funcionario.get('nome')?.touched)">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail do Funcionário</mat-label>
+            <input type="email" matInput formControlName="email"
+            [class.valido-icon]="this.funcionario.get('email')?.valid"
+                      [class.invalido-icon]="this.funcionario.get('email')?.invalid && this.funcionario.get('email')?.touched">
+    
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Salário do Funcionário</mat-label>
+            <input type="text" matInput formControlName="salario">
+    
+          </mat-form-field>
+          <div>
+            <mat-label>Cargo do Funcionário</mat-label>
+            <select name="cargo" formControlName="cargo" class="form-control mb-3"
+                [class.valido-icon]="this.funcionario.get('cargo')?.valid"
+                [class.invalido-icon]="this.funcionario.get('cargo')?.invalid && this.funcionario.get('cargo')?.touched">>
+                <option value="ADM">Administração</option>
+                <option value="RH">Recursos Humanos</option>
+                <option value="TI">Tecnologia da Informação</option>
+                <option *ngFor = "let cargos of cargos" [ngValue]="cargos.cargo">{{cargos.cargo}} . {{cargo.descricao}} </option> 
+            </select>
+          </div>
+
+          <input style="color:transparent" accept=".png, .svg, .jpg, .jpeg " type="file" formControlName="foto" (change)="carregarImagem($event)" ><!--vamos colocar um metodo para quando for modificado o input, quando escolhermos alguma coisa-->
+          <button [disabled]="funcionario.invalid" class="btn mx-2 " (click)="salvarFuncionario()" mat-raised-button color="accent" type="submit" style="margin-top: 10px;">Salvar</button>
+        </form><!--accept: quais os tipos de arquivo que eu vou permitir subir para o storage-->
+    
+    </div>
